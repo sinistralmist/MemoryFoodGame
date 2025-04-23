@@ -28,15 +28,12 @@ const cardsWon = []
 let isProcessing = false
 
 function initGame() {
-    // Clear existing cards
     gridDisplay.innerHTML = ''
     
-    // Set up card array based on difficulty
     if (currentDifficulty === 'easy') {
         cardArray = [...foodItems.slice(0, 6), ...foodItems.slice(0, 6)]
         gridDisplay.className = 'grid'
     } else {
-        // For hard mode, use all food items (12) - 6 original + 6 rotated
         cardArray = [...foodItems.slice(0, 8), ...foodItems.slice(0, 8)] // 8 pairs (16 cards)
         gridDisplay.className = 'grid grid-hard'
     }
@@ -73,7 +70,6 @@ function createBoard() {
     }
 }
 
-// Difficulty selection
 easyBtn.addEventListener('click', () => {
     currentDifficulty = 'easy'
     easyBtn.classList.add('active')
@@ -88,7 +84,6 @@ hardBtn.addEventListener('click', () => {
     initGame()
 })
 
-// Initialize game
 initGame()
 
 function checkMatch() {
